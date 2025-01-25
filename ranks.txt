@@ -1,0 +1,326 @@
+1) China: 4.05
+2) Poland: 4.74
+3) United States: 4.86
+4) Philippines: 5.24
+5) Netherlands: 5.44
+6) Australia: 5.53
+7) Russia: 5.54
+8) Brazil: 5.59
+9) Republic of Korea: 5.64
+10) Germany: 5.66
+11) Chinese Taipei: 5.79
+12) Chile: 5.83
+13) Norway: 5.87
+14) Israel: 5.88
+15) United Kingdom: 5.9
+16) Switzerland: 5.95
+17) Vietnam: 5.95
+18) Italy: 5.99
+19) New Zealand: 6.0
+20) Sweden: 6.03
+21) Malaysia: 6.04
+22) Kyrgyzstan: 6.1
+23) South Africa: 6.12
+24) Romania: 6.16
+25) Mexico: 6.19
+26) Ukraine: 6.21
+27) Estonia: 6.22
+28) Lithuania: 6.22
+29) Argentina: 6.23
+30) Indonesia: 6.24
+31) Denmark: 6.25
+32) Austria: 6.34
+33) Czech Republic: 6.37
+34) Thailand: 6.44
+35) India: 6.49
+36) Singapore: 6.51
+37) Hong Kong, China: 6.56
+38) Ireland: 6.58
+39) France: 6.61
+40) Kosovo: 6.61
+41) Colombia: 6.65
+42) Japan: 6.66
+43) Mongolia: 6.7
+44) Peru: 6.73
+45) Spain: 6.77
+46) Turkey: 6.77
+47) Finland: 6.81
+48) Iran: 6.81
+49) Georgia: 6.83
+50) Dominican Republic: 6.88
+51) Kazakhstan: 6.9
+52) Bolivia: 6.95
+53) Bulgaria: 7.06
+54) Hungary: 7.1
+55) Belgium: 7.12
+56) Slovakia: 7.13
+57) Bangladesh: 7.21
+58) Uzbekistan: 7.24
+59) Paraguay: 7.31
+60) Venezuela: 7.37
+61) Pakistan: 7.57
+62) Belarus: 7.62
+63) Slovenia: 7.62
+64) Costa Rica: 7.69
+65) Greece: 7.7
+66) North Macedonia: 7.7
+67) Serbia: 7.7
+68) Egypt: 7.71
+69) Myanmar: 7.74
+70) Latvia: 7.84
+71) El Salvador: 7.99
+72) Tunisia: 8.02
+73) Guatemala: 8.04
+74) Iceland: 8.04
+75) Croatia: 8.06
+76) Lebanon: 8.06
+77) Kuwait: 8.07
+78) Portugal: 8.07
+79) Morocco: 8.08
+80) Ecuador: 8.16
+81) Uruguay: 8.17
+82) Macau, China: 8.26
+83) Albania: 8.32
+84) Palestine: 8.34
+85) Nepal: 8.43
+86) Sri Lanka: 8.47
+87) Cyprus: 8.52
+88) Azerbaijan: 8.57
+89) Panama: 8.58
+90) Algeria: 8.6
+91) Madagascar: 8.65
+92) Cambodia: 8.73
+93) Syria: 8.93
+94) Jordan: 8.96
+95) Honduras: 8.98
+96) Bahrain: 9.04
+97) Bosnia and Herzegovina: 9.07
+98) Armenia: 9.2
+99) Moldova: 9.25
+100) United Arab Emirates: 9.32
+101) Tajikistan: 9.39
+102) Nigeria: 9.46
+103) Oman: 9.68
+104) Angola: 9.87
+105) Haiti: 9.91
+106) Saudi Arabia: 10.13
+107) Cuba: 10.15
+108) Canada: 10.19
+109) Mauritius: 10.19
+110) Ethiopia: 10.49
+111) Afghanistan: 10.53
+112) Andorra: 10.57
+113) Malta: 10.75
+114) Montenegro: 10.86
+115) Luxembourg: 11.26
+116) Kenya: 11.51
+117) Zimbabwe: 11.62
+118) Turkmenistan: 11.65
+119) Trinidad and Tobago: 11.8
+120) Brunei: 11.83
+121) Togo: 12.16
+122) Malawi: 12.32
+123) Laos: 12.56
+124) Papua New Guinea: 12.66
+125) Liechtenstein: 12.94
+126) Nicaragua: 13.09
+127) Suriname: 13.14
+128) Bahamas: 13.37
+129) Fiji: 13.57
+130) Mozambique: 13.95
+131) Saint Kitts and Nevis: 14.18
+132) Belize: 14.23
+133) Rwanda: 14.35
+134) Guyana: 14.38
+135) Uganda: 14.55
+136) Yemen: 14.66
+137) Iraq: 15.19
+138) Barbados: 15.41
+139) Ghana: 16.77
+140) Sudan: 17.33
+141) Maldives: 18.26
+142) Saint Lucia: 18.47
+143) Zambia: 18.47
+144) Côte d'Ivoire: 19.09
+145) Namibia: 19.12
+146) Cameroon: 20.27
+147) Eritrea: 20.71
+148) Antigua and Barbuda: 20.75
+149) Bhutan: 21.32
+150) Tonga: 21.58
+151) Lesotho: 23.38
+152) Mauritania: 23.48
+153) Congo: 23.81
+154) Qatar: 25.75
+155) Jamaica: 26.59
+156) Libya: 26.6
+157) Senegal: 30.42
+158) Samoa: 36.97
+159) San Marino: 38.91
+160) Tanzania: 41.26
+161) Grenada: 49.23
+162) Monaco: 68.01
+163) Somalia: 74.32
+1) China: 4.05
+2) Poland: 4.74
+3) United States: 4.86
+4) Philippines: 5.24
+5) Netherlands: 5.44
+6) Australia: 5.53
+7) Russia: 5.54
+8) Brazil: 5.59
+9) Republic of Korea: 5.64
+10) Germany: 5.66
+11) Chinese Taipei: 5.79
+12) Chile: 5.83
+13) Norway: 5.87
+14) Israel: 5.88
+15) United Kingdom: 5.9
+16) Switzerland: 5.95
+17) Vietnam: 5.95
+18) Italy: 5.99
+19) New Zealand: 6.0
+20) Sweden: 6.03
+21) Malaysia: 6.04
+22) Kyrgyzstan: 6.1
+23) South Africa: 6.12
+24) Romania: 6.16
+25) Mexico: 6.19
+26) Ukraine: 6.21
+27) Estonia: 6.22
+28) Lithuania: 6.22
+29) Argentina: 6.23
+30) Indonesia: 6.24
+31) Denmark: 6.25
+32) Austria: 6.34
+33) Czech Republic: 6.37
+34) Thailand: 6.44
+35) India: 6.49
+36) Singapore: 6.51
+37) Hong Kong, China: 6.56
+38) Ireland: 6.58
+39) France: 6.61
+40) Kosovo: 6.61
+41) Colombia: 6.65
+42) Japan: 6.66
+43) Mongolia: 6.7
+44) Peru: 6.73
+45) Spain: 6.77
+46) Turkey: 6.77
+47) Finland: 6.81
+48) Iran: 6.81
+49) Georgia: 6.83
+50) Dominican Republic: 6.88
+51) Kazakhstan: 6.9
+52) Bolivia: 6.95
+53) Bulgaria: 7.06
+54) Hungary: 7.1
+55) Belgium: 7.12
+56) Slovakia: 7.13
+57) Bangladesh: 7.21
+58) Uzbekistan: 7.24
+59) Paraguay: 7.31
+60) Venezuela: 7.37
+61) Pakistan: 7.57
+62) Belarus: 7.62
+63) Slovenia: 7.62
+64) Costa Rica: 7.69
+65) Greece: 7.7
+66) North Macedonia: 7.7
+67) Serbia: 7.7
+68) Egypt: 7.71
+69) Myanmar: 7.74
+70) Latvia: 7.84
+71) El Salvador: 7.99
+72) Tunisia: 8.02
+73) Guatemala: 8.04
+74) Iceland: 8.04
+75) Croatia: 8.06
+76) Lebanon: 8.06
+77) Kuwait: 8.07
+78) Portugal: 8.07
+79) Morocco: 8.08
+80) Ecuador: 8.16
+81) Uruguay: 8.17
+82) Macau, China: 8.26
+83) Albania: 8.32
+84) Palestine: 8.34
+85) Nepal: 8.43
+86) Sri Lanka: 8.47
+87) Cyprus: 8.52
+88) Azerbaijan: 8.57
+89) Panama: 8.58
+90) Algeria: 8.6
+91) Madagascar: 8.65
+92) Cambodia: 8.73
+93) Syria: 8.93
+94) Jordan: 8.96
+95) Honduras: 8.98
+96) Bahrain: 9.04
+97) Bosnia and Herzegovina: 9.07
+98) Armenia: 9.2
+99) Moldova: 9.25
+100) United Arab Emirates: 9.32
+101) Tajikistan: 9.39
+102) Nigeria: 9.46
+103) Oman: 9.68
+104) Angola: 9.87
+105) Haiti: 9.91
+106) Saudi Arabia: 10.13
+107) Cuba: 10.15
+108) Canada: 10.19
+109) Mauritius: 10.19
+110) Ethiopia: 10.49
+111) Afghanistan: 10.53
+112) Andorra: 10.57
+113) Malta: 10.75
+114) Montenegro: 10.86
+115) Luxembourg: 11.26
+116) Kenya: 11.51
+117) Zimbabwe: 11.62
+118) Turkmenistan: 11.65
+119) Trinidad and Tobago: 11.8
+120) Brunei: 11.83
+121) Togo: 12.16
+122) Malawi: 12.32
+123) Laos: 12.56
+124) Papua New Guinea: 12.66
+125) Liechtenstein: 12.94
+126) Nicaragua: 13.09
+127) Suriname: 13.14
+128) Bahamas: 13.37
+129) Fiji: 13.57
+130) Mozambique: 13.95
+131) Saint Kitts and Nevis: 14.18
+132) Belize: 14.23
+133) Rwanda: 14.35
+134) Guyana: 14.38
+135) Uganda: 14.55
+136) Yemen: 14.66
+137) Iraq: 15.19
+138) Barbados: 15.41
+139) Ghana: 16.77
+140) Sudan: 17.33
+141) Maldives: 18.26
+142) Saint Lucia: 18.47
+143) Zambia: 18.47
+144) Côte d'Ivoire: 19.09
+145) Namibia: 19.12
+146) Cameroon: 20.27
+147) Eritrea: 20.71
+148) Antigua and Barbuda: 20.75
+149) Bhutan: 21.32
+150) Tonga: 21.58
+151) Lesotho: 23.38
+152) Mauritania: 23.48
+153) Congo: 23.81
+154) Qatar: 25.75
+155) Jamaica: 26.59
+156) Libya: 26.6
+157) Senegal: 30.42
+158) Samoa: 36.97
+159) San Marino: 38.91
+160) Tanzania: 41.26
+161) Grenada: 49.23
+162) Monaco: 68.01
+163) Somalia: 74.32
