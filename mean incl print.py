@@ -56,6 +56,22 @@ def categorize_solves(solves):
                 break
     return sub_x
 
+def get_placements(person):
+    wins = 0
+    comp_count = 0
+    for competition in person['competitionIds']:
+        comp_count += 1
+        try:
+            comp_results = person['results'][competition]['333']
+            result = [pos['position'] for pos in comp_results]
+            if int(result[0]) == 1:
+                wins += 1
+        except KeyError:
+            print(f'{competition} Placement not found')
+            continue
+    win_rate = (wins / comp_count) * 100
+    return win_rate
+
 def get_averages(person, event):
     averages = []
     for competition in person['competitionIds']:
@@ -63,21 +79,21 @@ def get_averages(person, event):
             comp_results = person['results'][competition][event]
             average = [float(data['average']) / 100 for data in comp_results]
             averages.append(average)
-        except Exception:
+        except KeyError:
             print(f'{competition} did not have 3x3')
             continue
     return averages
 
-def pages(sub_x, mean, solves, podium, averages, person, event):
+def pages(sub_x, mean, solves, podium, averages, person, event, wins):
     page = 1
     while True:
         try:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(f"\nHere's a list of {event} results for {person["name"]}")
+            print(f"\nHere's a list of {'x'.join(event)} results for {person["name"]}")
             if page == 1:
                 display(1, sub_x)
             elif page == 2:
-                display(2, sub_x, mean, solves, podium, averages, event)
+                display(2, sub_x, mean, solves, podium, averages, event, wins)
 
             if page == 1:
                 page = int(input(f"Page {page} >> "))
@@ -90,23 +106,32 @@ def pages(sub_x, mean, solves, podium, averages, person, event):
             print('\nExiting')
             return
 
-def display(n, sub_x=None, mean=None, solves=None, podium=None, averages=None, event=None):
+def display(n, sub_x=None, mean=None, solves=None, podium=None, averages=None, event=None, wins=None):
     if n == 1:
         table = []
         for x, y in sub_x.items():
-            table.append([x, y])
+            x = x.replace('_', ' ')
+            table.append([x.title(), y])
         header = ["Solves Sub X", "Number of Solves"]
         print(tabulate(table, headers=header, tablefmt="fancy_grid"))
     elif n == 2:
         print("\n Mean of total WCA solves: " + str(mean) + "\n")
         print(f"\n Number of podiums: {podium}\n")
-        print(f"\n Total {event} Solves: {str(len(solves))}\n")  
+        print(f"\n Total {'x'.join(event)} Solves: {str(len(solves))}\n")  
         print(f"\n{averages}\n")
+        print(f"Win rate: {round(wins)}%")
 
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
-    wca_id, event = input("Enter ID: ").split(" ")
-    event = event.replace('x', '')
+    inp = input("Enter WCA ID: ")
+
+    if ' ' in inp:
+        wca_id, event = inp.split(' ')
+        event = event.replace('x', '')
+    else:
+        wca_id = inp
+        event = '333'
+
     if len(wca_id) == 10:
         
         person = get_data(wca_id)
@@ -117,11 +142,27 @@ def main():
 
         mean = calculate_mean(solve_arr)
         sub_x = categorize_solves(solve_arr)
+        wins = get_placements(person)
 
-        pages(sub_x, mean, solve_arr, podium, averages, person, event)
+        pages(sub_x, mean, solve_arr, podium, averages, person, event, wins)
 
     else:
         print("Invalid")
+
+"""
+MAKE FUNCTION THAT TAKES USER INPUT AND OUTPUTS THE COMPETITION DATA AUTMATICALLY
+INSTEAD OF HAVING A FOR LOOP IN
+get_averages()
+get_placements()
+solves()
+
+
+Make the categorize_solves() different for different events
+as its not possible for some events to have sub 4 for example 3bld
+^^^ maybe it takes the mean of the solves and sets that as the middle ground and generates the rest based off that
+    or maybe it takes the fastest and slowest solve for the user and generates it based off that
+    but the problem is the chart would be different per person and not universal
+"""
 
 if __name__ == "__main__":
     main()
