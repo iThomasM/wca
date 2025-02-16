@@ -98,6 +98,16 @@ def get_placements(person, event):
     win_rate = (wins / comp_count) * 100
     return win_rate, podiums, wins
 
+def find_best_event(person):
+    events = ['222', '333', '444', '555', '666', '777', 
+            '333oh', '333bld', 'pyram', 'minx', 'skewb', 'sq1']
+    test_list = {}
+    for event in events:
+        win_rate, podiums, wins = get_placements(person, event)
+        test_list[event] = win_rate
+    
+    return max(test_list, key=test_list.get)
+
 def get_averages(person, event):
     averages = []
     for competition in person['competitionIds']:
@@ -110,16 +120,16 @@ def get_averages(person, event):
             continue
     return averages
 
-def pages(sub_x, mean, solves, averages, person, event, win_rate, podiums, wins):
+def pages(sub_x, mean, solves, averages, person, event, win_rate, podiums, wins, most_likely):
     page = 1
     while True:
         try:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(f"\nHere's a list of {'x'.join(event)} results for {person["name"]}")
+            print(f"\nHere's a list of {"x".join(event)} results for {person["name"]}")
             if page == 1:
                 display(1, sub_x)
             elif page == 2:
-                display(2, sub_x, mean, solves, averages, event, win_rate, podiums, wins)
+                display(2, sub_x, mean, solves, averages, event, win_rate, podiums, wins, most_likely)
             elif page == 3:
                 display(3)
             if page == 1:
@@ -133,7 +143,7 @@ def pages(sub_x, mean, solves, averages, person, event, win_rate, podiums, wins)
             print('\nExiting')
             return
 
-def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, win_rate=None, podiums=None, wins=None):
+def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, win_rate=None, podiums=None, wins=None, most_likely=None):
     if n == 1:
         table = []
         for x, y in sub_x.items():
@@ -143,13 +153,14 @@ def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, wi
         print(tabulate(table, headers=header, tablefmt="fancy_grid"))
     elif n == 2:
         try:
-            print(f"\n Mean of total WCA solves: {mean}\n" )
+            print(f"\nMean of total WCA solves: {mean}\n" )
         except:
-            print(f"\n Mean of total WCA solves: {mean}\n" )
-        print(f"\n Number of podiums: {podiums}\n")
-        print(f"\n Total {'x'.join(event)} Solves: {str(len(solves))}\n")  
+            print(f"\nMean of total WCA solves: {mean}\n" )
+        print(f"\nNumber of podiums: {podiums}\n")
+        print(f"\nTotal {"x".join(event)} Solves: {str(len(solves))}\n")  
         print(f"\nWin count: {wins}\n")
         print(f"\nWin rate: {round(win_rate, 1)}%\n")
+        print(f"\nMost likely to win: {most_likely}\n")
     elif n == 3:
         print("WIP")
 
@@ -159,7 +170,8 @@ def main():
 
     if ' ' in inp:
         wca_id, event = inp.split(' ')
-        event = event.replace('x', '')
+        if event[0].isdigit():
+            event = event.replace('x', '')
     else:
         wca_id = inp
         event = '333'
@@ -175,7 +187,9 @@ def main():
         sub_x = categorize_solves(solve_arr, event)
         win_rate, podiums, wins = get_placements(person, event)
 
-        pages(sub_x, mean, solve_arr, averages, person, event, win_rate, podiums, wins)
+        most_likely = find_best_event(person)
+
+        pages(sub_x, mean, solve_arr, averages, person, event, win_rate, podiums, wins, most_likely)
 
     else:
         print("Invalid")
