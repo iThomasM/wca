@@ -170,7 +170,8 @@ def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, wi
 
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
-    inp = input("Enter WCA ID: ")
+    print(f"Event IDs: {[i for i in event_dict.keys()]}")
+    inp = input("Enter WCA ID and/or Event ID: ")
 
     if ' ' in inp:
         wca_id, event = inp.split(' ')
