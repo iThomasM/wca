@@ -1,7 +1,10 @@
 import requests
 from tabulate import tabulate
 import os
-import termplotlib as tpl
+
+event_dict = {'222': '2x2', '333': '3x3', '444': '4x4', '555': '5x5', '666': '6x6', '777': '7x7',
+              'minx': 'Megaminx', 'pyram': 'Pyraminx', 'sq1': 'Square-1', 'clock': 'Clock', 'skewb': 'Skewb',
+              '333oh': '3x3 OH', '333bf': '3BLD', '444bf': '4BLD', '555bf': '5BLD'}
 
 def get_data(wca_id):
     per = requests.get(f'https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/api/persons/{wca_id}.json')
@@ -51,7 +54,7 @@ def calculate_mean(solves):
 def categorize_solves(solves, event):
     
     event_types = {'extreme_events': ['222'],
-                    'fast_events': ['333', 'skewb', 'pyram'],
+                    'fast_events': ['333', 'skewb', 'pyram', 'clock'],
                     'medium_events': ['555', '444', '333oh', 'sq1', '333bf', 'minx'],
                     'slow_events': ['666', '777']}
     
@@ -99,10 +102,8 @@ def get_placements(person, event):
     return win_rate, podiums, wins
 
 def find_best_event(person):
-    events = ['222', '333', '444', '555', '666', '777', 
-            '333oh', '333bld', 'pyram', 'minx', 'skewb', 'sq1']
     test_list = {}
-    for event in events:
+    for event in event_dict.keys():
         win_rate, podiums, wins = get_placements(person, event)
         test_list[event] = win_rate
     
@@ -114,10 +115,12 @@ def get_averages(person, event):
         try:
             comp_results = person['results'][competition][event]
             average = [float(data['average']) / 100 for data in comp_results]
-            averages.append(average)
+            for i in average:
+                averages.append(i)
         except KeyError:
             print(f'{competition} did not have 3x3')
             continue
+    averages = sorted(averages)
     return averages
 
 def pages(sub_x, mean, solves, averages, person, event, win_rate, podiums, wins, most_likely):
@@ -125,7 +128,7 @@ def pages(sub_x, mean, solves, averages, person, event, win_rate, podiums, wins,
     while True:
         try:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(f"\nHere's a list of {"x".join(event)} results for {person["name"]}")
+            print(f"\nHere's a list of {event_dict.get(event)} results for {person["name"]}")
             if page == 1:
                 display(1, sub_x)
             elif page == 2:
@@ -157,10 +160,11 @@ def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, wi
         except:
             print(f"\nMean of total WCA solves: {mean}\n" )
         print(f"\nNumber of podiums: {podiums}\n")
-        print(f"\nTotal {"x".join(event)} Solves: {str(len(solves))}\n")  
+        print(f"\nTotal {event_dict.get(event)} Solves: {str(len(solves))}\n")  
         print(f"\nWin count: {wins}\n")
         print(f"\nWin rate: {round(win_rate, 1)}%\n")
-        print(f"\nMost likely to win: {most_likely}\n")
+        print(f"\nMost likely to win: {event_dict.get(most_likely)}\n")
+        print(f"\nAverage Amplitude: {convert(round(averages[-1] - averages[0], 2))}\n")
     elif n == 3:
         print("WIP")
 
@@ -170,8 +174,6 @@ def main():
 
     if ' ' in inp:
         wca_id, event = inp.split(' ')
-        if event[0].isdigit():
-            event = event.replace('x', '')
     else:
         wca_id = inp
         event = '333'
@@ -186,7 +188,6 @@ def main():
         mean = calculate_mean(solve_arr)
         sub_x = categorize_solves(solve_arr, event)
         win_rate, podiums, wins = get_placements(person, event)
-
         most_likely = find_best_event(person)
 
         pages(sub_x, mean, solve_arr, averages, person, event, win_rate, podiums, wins, most_likely)
