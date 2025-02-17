@@ -118,7 +118,7 @@ def get_averages(person, event):
             for i in average:
                 averages.append(i)
         except KeyError:
-            print(f'{competition} did not have 3x3')
+            print(f'{competition} did not have {event}')
             continue
     averages = sorted(averages)
     return averages
@@ -157,14 +157,14 @@ def display(n, sub_x=None, mean=None, solves=None, averages=None, event=None, wi
     elif n == 2:
         try:
             print(f"\nMean of total WCA solves: {mean}\n" )
-        except:
-            print(f"\nMean of total WCA solves: {mean}\n" )
-        print(f"\nNumber of podiums: {podiums}\n")
-        print(f"\nTotal {event_dict.get(event)} Solves: {str(len(solves))}\n")  
-        print(f"\nWin count: {wins}\n")
-        print(f"\nWin rate: {round(win_rate, 1)}%\n")
-        print(f"\nMost likely to win: {event_dict.get(most_likely)}\n")
-        print(f"\nAverage Amplitude: {convert(round(averages[-1] - averages[0], 2))}\n")
+            print(f"\nNumber of podiums: {podiums}\n")
+            print(f"\nTotal {event_dict.get(event)} Solves: {str(len(solves))}\n")  
+            print(f"\nWin count: {wins}\n")
+            print(f"\nWin rate: {round(win_rate, 1)}%\n")
+            print(f"\nMost likely to win: {event_dict.get(most_likely)}\n")
+            print(f"\nAverage Amplitude: {convert(round(averages[-1] - averages[0], 2))}\n")
+        except Exception as e:
+            print(e)
     elif n == 3:
         print("WIP")
 
@@ -174,6 +174,8 @@ def main():
 
     if ' ' in inp:
         wca_id, event = inp.split(' ')
+        if event[0].isdigit():
+            event = event.replace('x', '')
     else:
         wca_id = inp
         event = '333'
